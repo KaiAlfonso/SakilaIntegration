@@ -1,0 +1,1 @@
+USE sakila; INSERT INTO customer (customer_id, store_id, first_name, last_name, email, address_id, active, create_date) VALUES (1, 1, 'JOHN', 'DOE', 'john.doe@sakilacustomer.org', 1, 1, NOW());
