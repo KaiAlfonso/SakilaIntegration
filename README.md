@@ -154,6 +154,30 @@ It desplay the CRUD methods using test.py
         
                 response = self.app.delete("/customers/777")
                 self.assertEqual(response.status_code, 404)
+
+# Automatically check the requirments details
+            blinker==1.9.0
+            click==8.4.1
+            colorama==0.4.6
+            Flask==3.1.3
+            Flask-MySQLdb==2.0.0
+            itsdangerous==2.2.0
+            Jinja2==3.1.6
+            MarkupSafe==3.0.3
+            mysqlclient==2.2.8
+            Werkzeug==3.1.8
+
+# Testing API.py
+        - python api.py
+        - Invoke-RestMethod -Uri "http://127.0.0.1:5000/customers" -Method GET
+        - Invoke-RestMethod -Uri "http://127.0.0.1:5000/actors" -Method POST -ContentType "application/json" -Body '{"first_name": "[Random first_name]", "last_name": "[Random last_name]"}'
+        - Invoke-RestMethod -Uri "http://127.0.0.1:5000/customers/1" -Method DELETE
+
+# Installing, creating and bypassing Virtual Environment(VENV) 
+- python -m venv .venv (Create venv)
+- pip install Flask flask-mysqldb (install)
+- Set-ExecutionPolicy -ExecutionPolicy Process -Scope CurrentUser (Bypass (if it shows red error))
+
 # Testing Approach
 - Unit tests were written using Python's `unittest` framework paired with `unittest.mock.patch` to guarantee complete layer isolation. Database operations are completely mocked (`MagicMock`) to evaluate route logic without altering physical records.
 - To test or run: `python -m unittest tests.py`
